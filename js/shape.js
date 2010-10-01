@@ -17,6 +17,9 @@ function Shape(points) {
 	}	
 }
 
+Shape.prototype.getShadowShapes = function() {
+}
+
 Shape.prototype.debugToCanvas = function(canvasId) {
 	var ctx = display.element.getContext("2d");
 	ctx.canvas.width  = window.innerWidth;
