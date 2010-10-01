@@ -5,42 +5,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>New Web Project</title>
         <link rel="stylesheet" href="reset.css" type="text/css" media="screen" />
-		<style>
-			div#floor {
-				width: 600px;
-				height: 600px;
-				/*
-				background: url(cobbles-100.png);
-				 */
-				top: 100px;
-				left: 400px;
-				position: absolute;
-				
-			}
-		</style>
-		<!--
-		<script type="text/javascript" src="foo.js"></script>
-		-->
-		<script type="text/javascript" src="jcoglan.com/sylvester.js"></script>
-		<script type="text/javascript" src="EventHelpers.js"></script>
-		<script type="text/javascript" src="cssQuery-p.js"></script>
-		<script type="text/javascript" src="cssSandpaper.js"></script>
-		<script type="text/javascript" src="jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="js/vector2d.js"></script>
+		<script type="text/javascript" src="js/line.js"></script>
+		<script type="text/javascript" src="js/shape.js"></script>
+		<script type="text/javascript" src="js/level0.js"></script>
+			$(document).on <-- continue here
 		<script type="text/javascript">
-			var ang = 0;
-			$(document).ready(function(){
-				var node = $('div#floor')[0];
-				console.log(node);
-				setInterval(function() {
-					ang += 1;
-					cssSandpaper.setTransform(node, "scale(1, 0.3) rotate(" + ang + "deg) ");//"matrix(2, 0, 0, 0, 1, 0");
-				}, 20);
-			//	$('div#floor').css()
-			});
 		</script>
     </head>
     <body>
         <h1>New Web Project Page</h1>
-		<div id="floor"><form><input></input></form></div>
+		<canvas></canvas>
     </body>
 </html>

@@ -5,6 +5,9 @@ var DEGREES_60 = Math.PI / 3;
 var DEGREES_30 = Math.PI / 6;
 
 function V(x, y) {
+	if (this === window) {
+		return new V(x, y);
+	}	
 	this.x = x;
 	this.y = y;
 }

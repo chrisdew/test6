@@ -5,9 +5,13 @@
  * @param {V} end
  */
 function Line(begin, end) {
+	if (this === window) {
+		return new Line(begin, end);
+	}
 	this.begin = begin;
 	this.end = end;
 }
+
 
 Line.prototype.rot_about = function(r, p) {
 	return new Line(this.begin.rot_about(r, p), this.end.rot_about(r, p))
