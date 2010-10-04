@@ -3,7 +3,7 @@
 <html>
 <title>foo</title>
 <head>
-    <script type="text/javascript" src="jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
     <script type="text/javascript" src="qunit.js"></script>
     <link rel="stylesheet" href="reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
@@ -15,14 +15,14 @@
     <script type="text/javascript">
     $(document).ready(function(){
 	
-module("engine");
+module("test6");
 
 test("vector", function() {
 	deepEqual(new V(0.0, 0.0).add(new V(5.0, 5.0)), new V(5.0, 5.0)); 
-	deepEqual(new V(0.0, 0.0).sub(new V(5.0, 5.0)), new V(-5.0, -5.0)); 
+	deepEqual(V(0.0, 0.0).sub(new V(5.0, 5.0)), V(-5.0, -5.0)); 
 	deepEqual(new V(5.0, 5.0).rot(Math.PI), new V(-4.999999999999999, -5.000000000000001)); 
 	deepEqual(new V(5.0, 5.0).rot(DEGREES_90), new V(5.0, -5.0)); 
-	deepEqual(new V(5.0, 5.0).rot_about(DEGREES_90, new V(5.0, 5.0)), new V(5.0, 5.0)); 
+	deepEqual(new V(5.0, 5.0).rot_about(DEGREES_90, V(5.0, 5.0)), new V(5.0, 5.0)); 
 	deepEqual(new V(5.0, 5.0).rot_about(DEGREES_90, new V(2.5, 2.5)), new V(5.0, 0.0)); 
 });
 
@@ -34,7 +34,7 @@ test("line", function() {
 	         .intersects(new Line(new V(0.0, 1.0), new V(2.0, 1.0)))
 			 , { result: false, state: PARALLEL });
 	deepEqual(           new Line(new V(1.0, 5.0), new V(6.0, 8.0))
-	         .intersects(new Line(new V(0.5, 3.0), new V(6.0, 4.0)))
+	         .intersects(Line(new V(0.5, 3.0), new V(6.0, 4.0)))
 			 , { result: false, state: NOT_INTERSECTING });
 	deepEqual(           new Line(new V(1.0, 1.0), new V(3.0, 8.0))
 	         .intersects(new Line(new V(0.5, 2.0), new V(4.0, 7.0)))
@@ -45,6 +45,13 @@ test("line", function() {
 	deepEqual(new Line(new V(0.0, 0.0), new V(5.0, 10.0)).pos_along(0.3), new V(3.5, 7.0));
 }); 
 
+test("shape", function() {
+	deepEqual(project(V(0.0, 0.0), V(3.0, 4.0), 10), V(6.0, 8.0)); 
+	deepEqual(project(V(0.0, 0.0), V(-3.0, 4.0), 10), V(-6.0, 8.0)); 
+	deepEqual(project(V(0.0, 0.0), V(-3.0, -4.0), 10), V(-6.0, -8.0)); 
+	deepEqual(project(V(0.0, 0.0), V(0.0, -4.0), 10), V(0.0, -10.0)); 
+	deepEqual(project(V(0.0, 0.0), V(-3.0, 0.0), 10), V(-10.0, 0.0)); 
+});
 
 
 });

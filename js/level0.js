@@ -1,4 +1,4 @@
-level = {
+window.level = {
 	shapes: [
 		new Shape( [ V(0,-40)
 				   , V(30,-10)

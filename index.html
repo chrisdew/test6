@@ -6,16 +6,24 @@
         <title>New Web Project</title>
         <link rel="stylesheet" href="reset.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="js/engine.js"></script>
 		<script type="text/javascript" src="js/vector2d.js"></script>
 		<script type="text/javascript" src="js/line.js"></script>
 		<script type="text/javascript" src="js/shape.js"></script>
 		<script type="text/javascript" src="js/level0.js"></script>
-			$(document).on <-- continue here
 		<script type="text/javascript">
+			$(document).ready(function() {
+				//alert("foo");
+				window.level.shapes[0].debugToCanvas();
+				var shadows = window.level.shapes[0].getShadowShapes(V(0,0), 1000);
+				for (var i in shadows) {
+					shadows[i].debugToCanvas();
+				}
+			});
 		</script>
     </head>
     <body>
         <h1>New Web Project Page</h1>
-		<canvas></canvas>
+		<canvas id="display" width="800", height="400"></canvas>
     </body>
 </html>
